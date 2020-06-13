@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.body {
+  
+  font-size: 24px;
+  line-height: 32px;
+  color: #333;
+}
+
+.topnav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: grey;
+  text-align: center;  
+}
+
+#left {
+  float: left;
+  width: 50%;
+  margin-top: 30px;
+  height: 200px;
+  background: blue;
+  text-align: center; 
+  line-height: 12;
+}
+
+span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+#right {
+  float: right;
+  margin-top: 30px;
+  line-height: 12;
+  width: 25%;
+  height: 200px;
+  background: red;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: green;
+  text-align: center;
+}
