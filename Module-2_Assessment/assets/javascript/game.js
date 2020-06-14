@@ -1,6 +1,6 @@
 
     const maximumNumberTries = 10;              //the total number of tries the user can take
-    var lettersUserHasGuessed = [];             //array of letters that have already been guessed
+    var usedLetters = [];             //array of letters that have already been guessed
     var wordBeingGuessed = [];                  //the current word the user is trying to guess
     var numGuessesLeft;                         //the number of guesses the user currently has left            
     var displayWord = [];                    //the word user is trying to guess that is actually displayed on screen with dashes for unguessed letters
@@ -8,17 +8,18 @@
     var indexOfWordToGuess = -1;                //index number of the array containing the word to guess
     var winFlag = false;                        //flag that says if the game has been won
     var loseFlag = false;                       //flag that says if the game has been lost
+    var whileFlag = false;
     var wordsToGuessFromArray = ["Washington",  //An array with a list of words to chose from
-    "Adams",
-    "Jefferson",
-    "Madison",
-    "Monroe",
-    "Jackson",
-    "Tyler",
-    "Polk",
-    "Taylor",
-    "Fillmore",
-    "Pierce"];
+    "adams",
+    "jefferson",
+    "madison",
+    "monroe",
+    "jackson",
+    "tyler",
+    "polk",
+    "taylor",
+    "fillmore",
+    "pierce"];
 //}
 
 
@@ -41,8 +42,8 @@ function initializeValues()
 {
     //console.log(2); //testing
     // for testing use; console.log(numberOfWins);
-    lettersUserHasGuessed = [];     //console.log(lettersUserHasGuessed);
-
+    usedLetters = [];     //console.log(usedLetters);
+    displayWord = [];
     numGuessesLeft = maximumNumberTries;  //console.log(numGuessesLeft);
     winFlag = false;              //  console.log(winFlag);
     loseFlag = false;             //  console.log(loseFlag);
@@ -54,7 +55,7 @@ function initializeValues()
 
     for (var i = 0; i < wordsToGuessFromArray[indexOfWordToGuess].length; i++)              //could also use word being guessed
     {
-
+        displayWord.push("_");
     }
         
     
@@ -64,7 +65,7 @@ function showValues(){      //      function for testing purposes to see values 
     document.getElementById("winsI").innerText = numberOfWins;
     document.getElementById("currentWordI").innerText = displayWord;
     document.getElementById("guessesLeftI").innerText = numGuessesLeft;
-    document.getElementById("lettersGuessedI").innerText = lettersUserHasGuessed;
+    document.getElementById("lettersGuessedI").innerText = usedLetters;
     console.log(maximumNumberTries);
     console.log(numberOfWins);
     console.log(indexOfWordToGuess);
@@ -82,13 +83,27 @@ function showValues(){      //      function for testing purposes to see values 
 
 
 
-document.onkeydown = function checkGuess(){
+document.onkeydown = function(event)
+{
+    if(event.KeyCode <= 65 || event.KeyCode >= 90)
+    {
+      <h6>You must use a lower case letter</h6> ; 
+        event();
+    }
     //recognize keystroke
     //check if entered key is in the array of the correct word
         //if yes call function "correct Guess"
         //if no, call function "incorrect guess"
-    
-        
+  //  if()
+    else
+    {    
+        checkGuess(event.key)
+    }
+}
+
+function checkGuess(letter)
+{
+
 }
 
 function correctGuess(){
