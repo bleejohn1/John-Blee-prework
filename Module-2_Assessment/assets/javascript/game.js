@@ -71,14 +71,14 @@ function mainLoop(){      //      function for testing purposes to see values at
     document.getElementById("currentWordI").innerText = displayWord;
     document.getElementById("guessesLeftI").innerText = numGuessesLeft;
     document.getElementById("lettersGuessedI").innerText = usedLetters;
- /*   console.log(maximumNumberTries);
+    console.log(maximumNumberTries);
     console.log(numberOfWins);
     console.log(indexOfWordToGuess);
     console.log(winFlag);
     console.log(loseFlag);
     console.log(wordsToGuessFromArray);
     console.log(displayWord);
-    console.log(wordBeingGuessed);              */
+    console.log(wordBeingGuessed);              
     console.log("mainLoop ran properly");
 }
 
@@ -86,18 +86,50 @@ function mainLoop(){      //      function for testing purposes to see values at
 document.onkeydown = function(event)
 {
     //check if correct
-        //if correct revealLetter(event.key)
+    var positions = [];
 
+    for(var i = 0; i < wordBeingGuessed.length; i++)
+    {
+        if(wordBeingGuessed[i] === event.key)
+        {
+            positions.push(i);
+        }
+    }
+
+        //CORRECT if correct revealLetter(event.key)
+    if(positions.length <= 0)
+    {
+        revealLetter(event.KeyCode);
+    }
+        //if incorrect 
+    else
+    {
+        
+    }
 }
 
 function revealLetter(letter)
 {
+
+
+
+
+
     //change array
     // reveal letter on screen
     // call function checkIfWon(letter)
 }
 
 ///////NOT CORRECT
+
+function dontRevealLetter(letter)
+{
+    //decrease the guess counter by 1
+    //add incorrect letter to array and display it
+
+    //call function checkIfLost(letter)
+}
+
 
 function checkIfWon(letter)
 {
@@ -110,6 +142,58 @@ function checkIfWon(letter)
         // return to mainLoop    
 
 }
+
+function checkIfLost(letter)
+{
+    //check if lost
+        //if yes, then call initializeValues
+
+        //if no call function mainLoop
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //wordBeingGuessed = wordsToGuessFrom[wordsToGuessFrom.length];
