@@ -1,13 +1,13 @@
 
-    const maximumTries = 10;
-    lettersUserHasGuessed = [];
-    wordBeingGuessed = [];
-    var numGuessesLeft = maximumTries;
-    var numberOfWins = 3;
+    const maximumNumberTries = 10;
+    var lettersUserHasGuessed = [];
+    var wordBeingGuessed = [];
+    var numGuessesLeft;
+    var numberOfWins = 400000;
     var currentLetterBeingGuessed = "";
-    winFlag = false;
-    LoseFlag = false;
-    wordsToGuessFrom = ["Washington",
+    var winFlag = false;
+    var loseFlag = false;
+    var wordsToGuessFrom = ["Washington",
     "Adams",
     "Jefferson",
     "Madison",
@@ -17,40 +17,52 @@
     "Polk",
     "Taylor",
     "Fillmore",
-    "Pierce"]
+    "Pierce"];
 //}
 
 
-const winsIH1 = document.querySelector('#winsI');
+winsIH1 = document.querySelector('#winsI');
 const currentWordIH1 = document.querySelector('#currentWordI');
 const guessesLeftIH1 = document.querySelector('#guessesLeftI');
 const lettersGuessedIH1 = document.querySelector('#lettersGuessedI');
 
-//winsIH1.innerHTML = ('Hello');
 
+// document.addEventListener('keyup', showWins);       //testing to see if keystrokes work
 
+function showWins()
+{
+    document.getElementById("winsI").innerText = numberOfWins;
 
-
-function practiceF(){
-    console.log(2);
 }
 
-document.addEventListener('keyup', showWins);       //testing to see if keystrokes work
 
 function initializeValues()
 {
     //console.log(2); //testing
-    lettersUserHasGuessed = [];     console.log(lettersUserHasGuessed);
-    wordBeingGuessed = [];          console.log(wordBeingGuessed);
-    numGuessesLeft = maximumTries;  console.log(numGuessesLeft);
-    winFlag = false;                console.log(winFlag);
-    loseFlag = false;               console.log(loseFlag);
-    currentLetterBeingGuessed = []; console.log(currentLetterBeingGuessed); 
+    // for testing use; console.log(numberOfWins);
+    lettersUserHasGuessed = [];     //console.log(lettersUserHasGuessed);
+    wordBeingGuessed = [];          //console.log(wordBeingGuessed);
+    numGuessesLeft = maximumNumberTries;  //console.log(numGuessesLeft);
+    winFlag = false;              //  console.log(winFlag);
+    loseFlag = false;             //  console.log(loseFlag);
+    currentLetterBeingGuessed = [];// console.log(currentLetterBeingGuessed); 
         // randomly take a value from wordsToGuessFrom array
-
+    console.log("initializeValues ran properly");   
 }
 
-
+function showValues(){      //      function for testing purposes to see values at any point in the program this is called
+    document.getElementById("winsI").innerText = numberOfWins;
+    document.getElementById("currentWordI").innerText = wordBeingGuessed;
+    document.getElementById("guessesLeftI").innerText = numGuessesLeft;
+    document.getElementById("lettersGuessedI").innerText = lettersUserHasGuessed;
+    console.log(maximumNumberTries);
+    console.log(numberOfWins);
+    console.log(currentLetterBeingGuessed);
+    console.log(winFlag);
+    console.log(loseFlag);
+    console.log(wordsToGuessFrom);
+    console.log("showValues ran properly");
+}
 
 
 wordBeingGuessed = wordsToGuessFrom[wordsToGuessFrom.length];
