@@ -3,7 +3,8 @@
     var usedLetters = [];             //array of letters that have already been guessed
     var wordBeingGuessed = [];                  //the current word the user is trying to guess
     var numGuessesLeft;                         //the number of guesses the user currently has left            
-    var displayWord = [];                    //the word user is trying to guess that is actually displayed on screen with dashes for unguessed letters
+    var displayWord = [];   
+    var THELETTER = '';                 //the word user is trying to guess that is actually displayed on screen with dashes for unguessed letters
     var numberOfWins = 400000;                  //the number of times the user has won
     var indexOfWordToGuess = -1;                //index number of the array containing the word to guess
     var winFlag = false;                        //flag that says if the game has been won
@@ -53,20 +54,25 @@ function initializeValues()
     
 }
 
+//document.addEventListener('keydown',mainLoop);
 
-function showValues(){      //      function for testing purposes to see values at any point in the program this is called
+
+
+//************************************************************************************************************/
+
+function mainLoop(){      //      function for testing purposes to see values at any point in the program this is called
     document.getElementById("winsI").innerText = numberOfWins;
     document.getElementById("currentWordI").innerText = displayWord;
     document.getElementById("guessesLeftI").innerText = numGuessesLeft;
     document.getElementById("lettersGuessedI").innerText = usedLetters;
-    console.log(maximumNumberTries);
+ /*   console.log(maximumNumberTries);
     console.log(numberOfWins);
     console.log(indexOfWordToGuess);
     console.log(winFlag);
     console.log(loseFlag);
     console.log(wordsToGuessFromArray);
     console.log(displayWord);
-    console.log(wordBeingGuessed);
+    console.log(wordBeingGuessed);              */
     console.log("showValues ran properly");
 }
 
@@ -75,29 +81,30 @@ function showValues(){      //      function for testing purposes to see values 
 // wait for input and then call "checkGuess"
 
 
-function mainLoop()
-{
-    showValues();           //display current state of game
-
-    //onclick function
-
-   // validate();
-
-   // checkGuess();           //check if guess is correct or not
-}
 
 
+/*
 function validate(letter)
 {
     console.log("validate function ran");
-    if(event.KeyCode <= 65 || event.KeyCode >=90)
+    if(letter <= 65 || letter >=90)
     {
+        console.log("incorrect letter");
         document.addEventListener('keydown', validate);
     }
     else
         return;
 
 }
+*/
+
+function assignKey(event)
+{
+ 
+
+}
+
+
 
 function checkGuess(letter)
 {
@@ -106,7 +113,7 @@ function checkGuess(letter)
 
 function correctGuess(){
     //reveal letter     
-        document.getElementById("winsIH1").innerText = wins;
+      //  document.getElementById("winsIH1").innerText = wins;
     // then call function "check if won"
 }
 
