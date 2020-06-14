@@ -2,7 +2,7 @@
     const maximumNumberTries = 10;              //the total number of tries the user can take
     var usedLetters = [];             //array of letters that have already been guessed
     var wordBeingGuessed = [];                  //the current word the user is trying to guess
-    var numGuessesLeft;                         //the number of guesses the user currently has left            
+    var guessCounter;                         //the number of guesses the user currently has left            
     var displayWord = [];   
     var THELETTER = '';                 //the word user is trying to guess that is actually displayed on screen with dashes for unguessed letters
     var numberOfWins = 400000;                  //the number of times the user has won
@@ -10,7 +10,7 @@
     var winFlag = false;                        //flag that says if the game has been won
     var loseFlag = false;                       //flag that says if the game has been lost
     var whileFlag = false;
-    var wordsToGuessFromArray = ["Washington",  //An array with a list of words to chose from
+    var wordsToGuessFromArray = ["washington",  //An array with a list of words to chose from
     "adams",
     "jefferson",
     "madison",
@@ -37,7 +37,7 @@ function initializeValues()
     // for testing use; console.log(numberOfWins);
     usedLetters = [];     //console.log(usedLetters);
     displayWord = [];
-    numGuessesLeft = maximumNumberTries;  //console.log(numGuessesLeft);
+    guessCounter = maximumNumberTries;  //console.log(guessCounter);
     winFlag = false;              //  console.log(winFlag);
     loseFlag = false;             //  console.log(loseFlag);
     indexOfWordToGuess = Math.floor(Math.random() * (wordsToGuessFromArray.length));       //The INDEX of the chosen word in the Array of Guessable words; this will be a number;
@@ -69,7 +69,7 @@ function mainLoop(){      //      function for testing purposes to see values at
     
     document.getElementById("winsI").innerText = numberOfWins;
     document.getElementById("currentWordI").innerText = displayWord;
-    document.getElementById("guessesLeftI").innerText = numGuessesLeft;
+    document.getElementById("guessesLeftI").innerText = guessCounter;
     document.getElementById("lettersGuessedI").innerText = usedLetters;
     console.log(maximumNumberTries);
     console.log(numberOfWins);
@@ -114,16 +114,22 @@ function correctChoice(letter,position)
     console.log("we are now in correctChoice");
     console.log(letter);
     // check if letter was guessed already
-
+        if(usedLetters.indexOf(letter) === -1)
+        {
+            mainLoop();
+            console.log("This letter was used already");
+        }
     //change array
         for(var i = 0; i < position.length; i++)
         {
             displayWord[position[i]] = letter;
+            document.getElementById("currentWordI").innerText = displayWord;
         }
     // reveal letter on screen
     // call function checkIfWon(letter)
+    console.log(position);
+    console.log(displayWord[0]);
     checkIfWon(letter);
-
 }
 
 ///////NOT CORRECT
@@ -132,6 +138,8 @@ function incorrectChoice(letter)
 {
     console.log("we are now in incorrectChoice");
     //decrease the guess counter by 1
+        guessCounter--;
+        document.getElementById("guessesLeftI").innerText = guessCounter;
     //add incorrect letter to array and display it
 
 
