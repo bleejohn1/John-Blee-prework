@@ -23,4 +23,8 @@ function showWins(numberOfWins){
     return numberOfWins;
 }
 
-const winsH1 = document.querySelector('#winsI');
+const winsIH1 = document.querySelector('#winsI');
+const currentWordIH1 = document.querySelector('#currentWordI');
+const guessesLeftIH1 = document.querySelector('#guessesLeftI');
+const lettersGuessedIH1 = document.querySelector('#lettersGuessedI');
+
