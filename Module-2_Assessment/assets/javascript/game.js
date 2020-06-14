@@ -35,26 +35,27 @@ function practiceF(){
     console.log(2);
 }
 
-document.addEventListener('keyup', showWins);
+document.addEventListener('keyup', showWins);       //testing to see if keystrokes work
 
 function initializeValues()
 {
-    console.log(2); //testing
-    lettersUserHasGuessed = [];
-    wordBeingGuessed = [];
-    numGuessesLeft = maximumTries;
-    winFlag = false;
-    LoseFlag = false;
-    currentLetterBeingGuessed = []; // randomly take a value from wordsToGuessFrom array
+    //console.log(2); //testing
+    lettersUserHasGuessed = [];     console.log(lettersUserHasGuessed);
+    wordBeingGuessed = [];          console.log(wordBeingGuessed);
+    numGuessesLeft = maximumTries;  console.log(numGuessesLeft);
+    winFlag = false;                console.log(winFlag);
+    loseFlag = false;               console.log(loseFlag);
+    currentLetterBeingGuessed = []; console.log(currentLetterBeingGuessed); 
+        // randomly take a value from wordsToGuessFrom array
 
 }
 
 
-function playGame(){
+
 
 wordBeingGuessed = wordsToGuessFrom[wordsToGuessFrom.length];
 // wait for input and then call "checkGuess"
-}
+
 
 
 function checkGuess(){
@@ -67,13 +68,14 @@ function checkGuess(){
 }
 
 function correctGuess(){
-    //reveal letter
+    //reveal letter     
+        document.getElementById("winsIH1").innerText = wins;
     // then call function "check if won"
 }
 
 function incorrectGuess(){
-    //decrease guesses left counter
-    //display incorrect letter in the letters already guessed array
+    //decrease guesses left counter     document.getElementById("totalWins").innerText = wins;
+    //display incorrect letter in the letters already guessed array     document.getElementById("totalWins").innerText = wins;
     //call function "check if lost"
 }
 
@@ -84,7 +86,7 @@ function checkIfWon(){
 }
 
 function win(){
-    //increase win counter
+    //increase win counter      document.getElementById("totalWins").innerText = wins;
     //call function initialize
 
 }
