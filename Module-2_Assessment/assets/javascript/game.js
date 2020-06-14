@@ -29,14 +29,6 @@ const guessesLeftIH1 = document.querySelector('#guessesLeftI');
 const lettersGuessedIH1 = document.querySelector('#lettersGuessedI');
 
 
-// document.addEventListener('keyup', showWins);       //testing to see if keystrokes work
-
-function showWins()
-{
-    document.getElementById("winsI").innerText = numberOfWins;
-
-}
-
 
 function initializeValues()
 {
@@ -61,6 +53,7 @@ function initializeValues()
     
 }
 
+
 function showValues(){      //      function for testing purposes to see values at any point in the program this is called
     document.getElementById("winsI").innerText = numberOfWins;
     document.getElementById("currentWordI").innerText = displayWord;
@@ -82,23 +75,28 @@ function showValues(){      //      function for testing purposes to see values 
 // wait for input and then call "checkGuess"
 
 
-
-document.onkeydown = function(event)
+function mainLoop()
 {
-    if(event.KeyCode <= 65 || event.KeyCode >= 90)
+    showValues();           //display current state of game
+
+    //onclick function
+
+   // validate();
+
+   // checkGuess();           //check if guess is correct or not
+}
+
+
+function validate(letter)
+{
+    console.log("validate function ran");
+    if(event.KeyCode <= 65 || event.KeyCode >=90)
     {
-      <h6>You must use a lower case letter</h6> ; 
-        event();
+        document.addEventListener('keydown', validate);
     }
-    //recognize keystroke
-    //check if entered key is in the array of the correct word
-        //if yes call function "correct Guess"
-        //if no, call function "incorrect guess"
-  //  if()
     else
-    {    
-        checkGuess(event.key)
-    }
+        return;
+
 }
 
 function checkGuess(letter)
@@ -137,3 +135,46 @@ function checkIfLost(){
 }
 
 
+
+// document.addEventListener('keyup', showWins);       //testing to see if keystrokes work
+/*
+function showWins()
+{
+    document.getElementById("winsI").innerText = numberOfWins;
+
+}
+*/
+
+
+
+
+
+//document.addEventListener('keydown', mainLoop);
+
+
+
+
+/*
+document.onkeydown = function(event)
+{
+    if(event.KeyCode <= 65 || event.KeyCode >=90)
+    {
+        mainLoop();
+    }
+    /*
+    if(event.KeyCode <= 65 || event.KeyCode >= 90)
+    {
+    
+    }
+    //recognize keystroke
+    //check if entered key is in the array of the correct word
+        //if yes call function "correct Guess"
+        //if no, call function "incorrect guess"
+  //  if()
+  
+    else
+        return;
+    
+    
+}
+*/
