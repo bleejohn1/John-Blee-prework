@@ -51,7 +51,7 @@ function initializeValues()
         displayWord.push("_");
     }
         
-    
+    //mainLoop();
 }
 
 //document.addEventListener('keydown',mainLoop);
@@ -61,6 +61,12 @@ function initializeValues()
 //************************************************************************************************************/
 
 function mainLoop(){      //      function for testing purposes to see values at any point in the program this is called
+        if(winFlag === true)
+        {
+            console.log("initialize values flag was true");
+            initializeValues();
+        }
+    
     document.getElementById("winsI").innerText = numberOfWins;
     document.getElementById("currentWordI").innerText = displayWord;
     document.getElementById("guessesLeftI").innerText = numGuessesLeft;
@@ -73,15 +79,41 @@ function mainLoop(){      //      function for testing purposes to see values at
     console.log(wordsToGuessFromArray);
     console.log(displayWord);
     console.log(wordBeingGuessed);              */
-    console.log("showValues ran properly");
+    console.log("mainLoop ran properly");
+}
+
+
+document.onkeydown = function(event)
+{
+    //check if correct
+        //if correct revealLetter(event.key)
+
+}
+
+function revealLetter(letter)
+{
+    //change array
+    // reveal letter on screen
+    // call function checkIfWon(letter)
+}
+
+///////NOT CORRECT
+
+function checkIfWon(letter)
+{
+    //If they won 
+        //increase win counter
+        //change win flag to true
+        //call mainLoop
+
+    //If they did not win
+        // return to mainLoop    
+
 }
 
 
 //wordBeingGuessed = wordsToGuessFrom[wordsToGuessFrom.length];
 // wait for input and then call "checkGuess"
-
-
-
 
 /*
 function validate(letter)
