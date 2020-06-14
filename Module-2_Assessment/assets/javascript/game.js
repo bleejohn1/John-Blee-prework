@@ -1,13 +1,14 @@
 
-    const maximumNumberTries = 10;
-    var lettersUserHasGuessed = [];
-    var wordBeingGuessed = [];
-    var numGuessesLeft;
-    var numberOfWins = 400000;
-    var currentLetterBeingGuessed = "";
-    var winFlag = false;
-    var loseFlag = false;
-    var wordsToGuessFrom = ["Washington",
+    const maximumNumberTries = 10;              //the total number of tries the user can take
+    var lettersUserHasGuessed = [];             //array of letters that have already been guessed
+    var wordBeingGuessed = [];                  //the current word the user is trying to guess
+    var numGuessesLeft;                         //the number of guesses the user currently has left            
+    var displayWord = [];                    //the word user is trying to guess that is actually displayed on screen with dashes for unguessed letters
+    var numberOfWins = 400000;                  //the number of times the user has won
+    var indexOfWordToGuess = -1;                //index number of the array containing the word to guess
+    var winFlag = false;                        //flag that says if the game has been won
+    var loseFlag = false;                       //flag that says if the game has been lost
+    var wordsToGuessFromArray = ["Washington",  //An array with a list of words to chose from
     "Adams",
     "Jefferson",
     "Madison",
@@ -41,36 +42,47 @@ function initializeValues()
     //console.log(2); //testing
     // for testing use; console.log(numberOfWins);
     lettersUserHasGuessed = [];     //console.log(lettersUserHasGuessed);
-    wordBeingGuessed = [];          //console.log(wordBeingGuessed);
+
     numGuessesLeft = maximumNumberTries;  //console.log(numGuessesLeft);
     winFlag = false;              //  console.log(winFlag);
     loseFlag = false;             //  console.log(loseFlag);
-    currentLetterBeingGuessed = [];// console.log(currentLetterBeingGuessed); 
+    indexOfWordToGuess = Math.floor(Math.random() * (wordsToGuessFromArray.length));       //The INDEX of the chosen word in the Array of Guessable words; this will be a number;
+    wordBeingGuessed = wordsToGuessFromArray[indexOfWordToGuess];
+             
         // randomly take a value from wordsToGuessFrom array
     console.log("initializeValues ran properly");   
+
+    for (var i = 0; i < wordsToGuessFromArray[indexOfWordToGuess].length; i++)              //could also use word being guessed
+    {
+
+    }
+        
+    
 }
 
 function showValues(){      //      function for testing purposes to see values at any point in the program this is called
     document.getElementById("winsI").innerText = numberOfWins;
-    document.getElementById("currentWordI").innerText = wordBeingGuessed;
+    document.getElementById("currentWordI").innerText = displayWord;
     document.getElementById("guessesLeftI").innerText = numGuessesLeft;
     document.getElementById("lettersGuessedI").innerText = lettersUserHasGuessed;
     console.log(maximumNumberTries);
     console.log(numberOfWins);
-    console.log(currentLetterBeingGuessed);
+    console.log(indexOfWordToGuess);
     console.log(winFlag);
     console.log(loseFlag);
-    console.log(wordsToGuessFrom);
+    console.log(wordsToGuessFromArray);
+    console.log(displayWord);
+    console.log(wordBeingGuessed);
     console.log("showValues ran properly");
 }
 
 
-wordBeingGuessed = wordsToGuessFrom[wordsToGuessFrom.length];
+//wordBeingGuessed = wordsToGuessFrom[wordsToGuessFrom.length];
 // wait for input and then call "checkGuess"
 
 
 
-function checkGuess(){
+document.onkeydown = function checkGuess(){
     //recognize keystroke
     //check if entered key is in the array of the correct word
         //if yes call function "correct Guess"
