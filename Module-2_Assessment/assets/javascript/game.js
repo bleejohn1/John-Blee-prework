@@ -85,6 +85,7 @@ function mainLoop(){      //      function for testing purposes to see values at
 
 document.onkeydown = function(event)
 {
+    console.log("onkeydown worked");        //tracing to see if keystroke is detected
     //check if correct
     var positions = [];
 
@@ -97,35 +98,42 @@ document.onkeydown = function(event)
     }
 
         //CORRECT if correct revealLetter(event.key)
-    if(positions.length <= 0)
+    if(positions.length > 0)            //checking if there's anything in the array
     {
-        revealLetter(event.KeyCode);
+        correctChoice(event.key, positions);
     }
         //if incorrect 
     else
     {
-        
+        incorrectChoice(event.key);
     }
 }
 
-function revealLetter(letter)
+function correctChoice(letter,position)
 {
-
-
-
-
+    console.log("we are now in correctChoice");
+    console.log(letter);
+    // check if letter was guessed already
 
     //change array
+        for(var i = 0; i < position.length; i++)
+        {
+            displayWord[position[i]] = letter;
+        }
     // reveal letter on screen
     // call function checkIfWon(letter)
+    checkIfWon(letter);
+
 }
 
 ///////NOT CORRECT
 
-function dontRevealLetter(letter)
+function incorrectChoice(letter)
 {
+    console.log("we are now in incorrectChoice");
     //decrease the guess counter by 1
     //add incorrect letter to array and display it
+
 
     //call function checkIfLost(letter)
 }
@@ -133,6 +141,7 @@ function dontRevealLetter(letter)
 
 function checkIfWon(letter)
 {
+    console.log("we are now in checkIfWon");
     //If they won 
         //increase win counter
         //change win flag to true
