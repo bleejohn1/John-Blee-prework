@@ -1,4 +1,4 @@
-
+// Javascript Basics Assessment Activity 1
 9*9;
 
 56 / 12;
