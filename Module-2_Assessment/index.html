@@ -12,29 +12,34 @@
     <script src="assets/javascript/game.js" type="text/javascript"></script>
 </head>
 
-<body>
+<body style = "background-image: url('https://media2.s-nbcnews.com/i/newscms/2016_13/1033131/mt-rushmore-today-tease-160401_df078435b7f214854b74267a0dc1884d.jpg'); width: 960px">
+    
+    <div class = row>
+    <div class = "col-md1">
+        <p class = "justify content center"></p>
+        <h1> Press Any Key To Get Started!</h1>
+    </div>
+    </div>
+    
 
-    <h6>Wins:</h6>
+    <h3>Wins:</h3>
     <h1 id = "winsI"></h1>
     
-    <h6>Word you are guessing:</h6>
+    <h3>Word you are guessing:</h3>
     <h1 id = "currentWordI"></h1>   
     
-    <h6>How many guesses you have left:</h6>
+    <h3>How many guesses you have left:</h3>
     <h1 id = "guessesLeftI"></h1>
             
-    <h6>Letters you have guessed already:</h6>
+    <h3>Letters you have guessed already:</h3>
     <h1 id = "lettersGuessedI"></h1>
 
     
     <script>
         initializeValues();
        
-       mainLoop();
+        mainLoop();
     </script>
-
-
-
-        
+   
 </body>
 </html>
