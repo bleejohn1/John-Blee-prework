@@ -23,5 +23,11 @@
 	*	The number of remaining guesses is shown
 	*	Letters that have already been guessed are shown
 	*	After a win or loss the game will automatically begin again
-	
+
+	*	The number of guesses left counter works properly
+	*	The letters you have guessed display works properly
+	*	When you lose a game it restarts automatically always
+	*	Issues:
+		*	When you get the word correct it doesn't always restart
+		*	The wins counter doesn't always count a win	
 *	Thank you for playing my game
