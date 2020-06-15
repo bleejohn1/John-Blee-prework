@@ -71,7 +71,7 @@ function mainLoop(){      //            main function that displays the values, 
     document.getElementById("currentWordI").innerText = displayWord;
     document.getElementById("guessesLeftI").innerText = guessCounter;
     document.getElementById("lettersGuessedI").innerText = usedLetters;
-  //  console.log(maximumNumberTries);
+  
     console.log(numberOfWins);
     console.log(indexOfWordToGuess);
     console.log(winFlag);
@@ -97,7 +97,7 @@ document.onkeydown = function(event)
         }
     }
 
-        //CORRECT if correct revealLetter(event.key)
+
     if(positions.length > 0)            //checking if there's anything in the array
     {
         correctChoice(event.key, positions);
@@ -125,14 +125,20 @@ function correctChoice(letterUserEntered,position)
             displayWord[position[i]] = letterUserEntered;
             document.getElementById("currentWordI").innerText = displayWord;
         }
-    // reveal letter on screen
-    // call function checkIfWon(letter)
-    console.log(position);
-   // console.log(displayWord[0]);
-    checkIfWon(letterUserEntered);
-}
 
-///////NOT CORRECT
+    console.log(position);
+
+   /*
+   if(displayWord.indexOf("_") === -1)
+    {
+        numberOfWins++;
+        document.getElementById("winsI").innerText = numberOfWins;
+      // mainLoop();
+     // initializeValues();
+    }
+    */
+
+}
 
 function incorrectChoice(letterUserEntered)
 {
@@ -144,11 +150,11 @@ function incorrectChoice(letterUserEntered)
         usedLetters.push(letterUserEntered);                                        //Incorrect letter is added to letter graveyard
         document.getElementById("lettersGuessedI").innerText = usedLetters;         //Letter graveyard is updated/displayed on screen
 
-    //call function checkIfLost(letter)
+    
     //check if user has lost yet
     if(guessCounter <= 0)
     {
-        console.log("checking if user has lost");
+      
         initializeValues();
     }
     else
@@ -159,170 +165,7 @@ function incorrectChoice(letterUserEntered)
 }
 
 
-function checkIfWon(letterUserEntered)
-{
-    console.log("we are now in checkIfWon");
-    //If they won 
-        //increase win counter
-        //change win flag to true
-        //call mainLoop
-    if()
-    //If they did not win
-        // return to mainLoop    
 
-}
 
 
-function checkIfLost(letterUserEntered)
-{
-    console.log("we are in checkIfLost");
-}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//wordBeingGuessed = wordsToGuessFrom[wordsToGuessFrom.length];
-// wait for input and then call "checkGuess"
-
-/*
-function validate(letter)
-{
-    console.log("validate function ran");
-    if(letter <= 65 || letter >=90)
-    {
-        console.log("incorrect letter");
-        document.addEventListener('keydown', validate);
-    }
-    else
-        return;
-
-}
-*/
-
-function assignKey(event)
-{
- 
-
-}
-
-
-
-function checkGuess(letter)
-{
-
-}
-
-function correctGuess(){
-    //reveal letter     
-      //  document.getElementById("winsIH1").innerText = wins;
-    // then call function "check if won"
-}
-
-function incorrectGuess(){
-    //decrease guesses left counter     document.getElementById("totalWins").innerText = wins;
-    //display incorrect letter in the letters already guessed array     document.getElementById("totalWins").innerText = wins;
-    //call function "check if lost"
-}
-
-function checkIfWon(){
-    //check if number of letters left unrevealed is 0;
-    //if yes, call win function/change win flag
-    //if no, return to function play game
-}
-
-function win(){
-    //increase win counter      document.getElementById("totalWins").innerText = wins;
-    //call function initialize
-
-}
-
-function checkIfLost(){
-    //check if guesses left counter === 0
-    //if yes, change fase flag, call initialize function
-    //if no return to play game fucntion
-}
-
-
-
-// document.addEventListener('keyup', showWins);       //testing to see if keystrokes work
-/*
-function showWins()
-{
-    document.getElementById("winsI").innerText = numberOfWins;
-
-}
-*/
-
-
-
-
-
-//document.addEventListener('keydown', mainLoop);
-
-
-
-
-/*
-document.onkeydown = function(event)
-{
-    if(event.KeyCode <= 65 || event.KeyCode >=90)
-    {
-        mainLoop();
-    }
-    /*
-    if(event.KeyCode <= 65 || event.KeyCode >= 90)
-    {
-    
-    }
-    //recognize keystroke
-    //check if entered key is in the array of the correct word
-        //if yes call function "correct Guess"
-        //if no, call function "incorrect guess"
-  //  if()
-  
-    else
-        return;
-    
-    
-}
-*/
